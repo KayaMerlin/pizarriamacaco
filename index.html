@@ -59,7 +59,9 @@
         <div class="music-control">
             <button id="music-toggle" class="music-btn">🎵</button>
             <audio id="background-music" loop>
+                <source src="George Michael - Careless Whisper (Official Video).mp3" type="audio/mpeg">
                 <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+                Seu navegador não suporta reprodução de áudio.
             </audio>
         </div>
     </div>
@@ -87,16 +89,55 @@
             alert('🎉 Surpresa encontrada! Olhe no console do inspetor (F12) para ver a mensagem especial! 💕');
         }
 
-        // Adiciona o event listener para a mensagem misteriosa
-        document.addEventListener('DOMContentLoaded', function() {
-            const mysteryMessage = document.querySelector('.mystery-message');
-            if (mysteryMessage) {
-                mysteryMessage.addEventListener('click', abrirInspetor);
+            // Adiciona o event listener para a mensagem misteriosa
+    document.addEventListener('DOMContentLoaded', function() {
+        const mysteryMessage = document.querySelector('.mystery-message');
+        const backgroundMusic = document.getElementById('background-music');
+        const musicToggle = document.getElementById('music-toggle');
 
-                // Adiciona cursor pointer
-                mysteryMessage.style.cursor = 'pointer';
+        if (mysteryMessage) {
+            mysteryMessage.addEventListener('click', abrirInspetor);
+            mysteryMessage.style.cursor = 'pointer';
+        }
+
+        // Controle de música
+        let isMusicPlaying = false;
+
+        musicToggle.addEventListener('click', () => {
+            if (isMusicPlaying) {
+                backgroundMusic.pause();
+                musicToggle.classList.remove('playing');
+                musicToggle.textContent = '🔇';
+                isMusicPlaying = false;
+            } else {
+                // Tenta tocar a música
+                const playPromise = backgroundMusic.play();
+
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        musicToggle.classList.add('playing');
+                        musicToggle.textContent = '🎵';
+                        isMusicPlaying = true;
+
+                        // Mostra mensagem especial quando a música começa
+                        setTimeout(() => {
+                            console.log('🎵 Música especial: "Careless Whisper" de George Michael');
+                            console.log('💕 Uma música romântica para um momento especial...');
+                        }, 1000);
+                    }).catch(error => {
+                        console.log('❌ Não foi possível tocar a música automaticamente');
+                        console.log('💡 Clique no botão de música para tocar manualmente');
+                        // Fallback para música alternativa
+                        const fallbackSource = backgroundMusic.querySelector('source:last-child');
+                        if (fallbackSource) {
+                            backgroundMusic.currentTime = 0;
+                            backgroundMusic.load();
+                        }
+                    });
+                }
             }
         });
+    });
     </script>
 
     <script src="script.js"></script>
