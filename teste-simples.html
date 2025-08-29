@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧪 Teste Simples - Servidor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            margin: 0;
+        }
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        h1 { font-size: 3em; margin-bottom: 20px; }
+        .status { font-size: 1.5em; margin: 20px 0; }
+        .success { color: #4caf50; }
+        .error { color: #f44336; }
+        .info { color: #ffeb3b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 TESTE SIMPLES</h1>
+        
+        <div class="status success">✅ Servidor funcionando!</div>
+        
+        <p>Se você está vendo esta página, o servidor está funcionando perfeitamente!</p>
+        
+        <div class="status info">🌐 URL: <span id="url"></span></div>
+        <div class="status info">📁 Pasta: <span id="pasta"></span></div>
+        
+        <h2>📋 Próximos passos:</h2>
+        <ol style="text-align: left; display: inline-block;">
+            <li>Teste o arquivo de imagens: <a href="teste-imagens.html" style="color: #ffeb3b;">teste-imagens.html</a></li>
+            <li>Teste o jogo principal: <a href="index.html" style="color: #ffeb3b;">index.html</a></li>
+        </ol>
+        
+        <h2>🔧 Se não estiver funcionando:</h2>
+        <ul style="text-align: left; display: inline-block;">
+            <li>Verifique se o terminal mostra "Servidor rodando"</li>
+            <li>Tente usar 127.0.0.1:8001 em vez de localhost:8001</li>
+            <li>Verifique se não há firewall bloqueando</li>
+        </ul>
+    </div>
+    
+    <script>
+        // Mostra informações úteis
+        document.getElementById('url').textContent = window.location.href;
+        document.getElementById('pasta').textContent = window.location.pathname;
+        
+        console.log('✅ Teste simples carregado com sucesso!');
+        console.log('🌐 URL:', window.location.href);
+        console.log('📁 Pasta:', window.location.pathname);
+    </script>
+</body>
+</html>

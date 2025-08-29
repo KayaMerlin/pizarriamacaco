@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria do Macaco ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <!--
+    ╔══════════════════════════════════════════════════════════════╗
+    ║                                ║
+    ║                                                              ║
+    ║  "eu quero muito voce fiz esse site na brincadeira mas       ║
+    ║  pretendo atualizar ao decorrer do tempo, fiz na pressa      ║
+    ║  mas queria te entregar algo especial, quero te ver,         ║
+    ║  sentir e conversar contigo, escutar sua voz e nos           ║
+    ║  divertimos juntos, beijokas"                                ║
+    ║                                                              ║
+    ║  💕 Surpresa especial preparada com muito carinho! 💕        ║
+    ║                                                              ║
+    ╚══════════════════════════════════════════════════════════════╝
+    -->
+</head>
+<body>
+    <!-- Mensagem no canto da tela -->
+    <div class="mystery-message">
+        👀 <span class="mystery-text">Clique aqui para uma surpresa especial</span> 🔍
+    </div>
+
+    <div class="container">
+        <h1 class="titulo">Bem-vinda à Pizzaria do Macaco!</h1>
+        <p class="subtitulo">Use os ingredientes para montar a nossa pizza perfeita.</p>
+        
+        <div class="pizza-area">
+            <img src="basepizza.jpg" alt="Base da pizza em formato de coração" class="pizza-base" id="pizza-base">
+            <div id="toppings-container"></div>
+        </div>
+
+        <div class="ingredients-list">
+            <div class="ingredient" id="ingrediente1" data-message="A sua risada é o ingrediente mais doce.">
+                <img src="coracao.jpg" alt="Ingrediente Coração">
+            </div>
+            <div class="ingredient" id="ingrediente2" data-message="Nossos papos são o meu recheio favorito.">
+                <img src="estrela.png" alt="Ingrediente Estrela">
+            </div>
+            <div class="ingredient" id="ingrediente3" data-message="A sua companhia é o tempero da minha vida tenho saudades.">
+                <img src="cereja.png" alt="Ingrediente Cereja">
+            </div>
+        </div>
+        
+        <div id="message-container" class="message-container"></div>
+        <div id="final-message" class="final-message" style="display: none;">
+            <h1>🍕 Nossa Pizza do Macaco Está Pronta! 🍕</h1>
+            <p>Ela ficou perfeita, assim como você! ❤️</p>
+            <p>Cada ingrediente representa uma razão pela qual você é especial para mim.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeADyMq8_z8ESQR0jSrfjk_TNvvvBJfCBmxT3DYf0Mm27gH8Q/viewform?embedded=true" target="_blank" class="button-link">Me mande uma mensagem de volta! 💕</a>
+        </div>
+        
+        <!-- Controle de música -->
+        <div class="music-control">
+            <button id="music-toggle" class="music-btn">🎵</button>
+            <audio id="background-music" loop>
+                <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+            </audio>
+        </div>
+    </div>
+    
+    <script>
+        // Função para abrir o inspetor do navegador
+        function abrirInspetor() {
+            // Tenta abrir o DevTools de várias formas
+            console.log('🎉 SURPRESA! Você encontrou uma mensagem especial! 🎉');
+            console.log('');
+            console.log('💕 Olá Yasmim! 💕');
+            console.log('');
+            console.log('eu quero muito voce fiz esse site na brincadeira mas');
+            console.log('pretendo atualizar ao decorrer do tempo, fiz na pressa');
+            console.log('mas queria te entregar algo especial, quero te ver,');
+            console.log('sentir e conversar contigo, escutar sua voz e nos');
+            console.log('divertimos juntos, beijokas');
+            console.log('');
+            console.log('😘 Feito com muito carinho especialmente para você! 😘');
+            console.log('');
+            console.log('🔍 Para ver a mensagem completa, olhe nos comentários HTML!');
+            console.log('   Pressione F12 ou clique com o botão direito > Inspecionar');
+
+            // Alerta para mostrar que funcionou
+            alert('🎉 Surpresa encontrada! Olhe no console do inspetor (F12) para ver a mensagem especial! 💕');
+        }
+
+        // Adiciona o event listener para a mensagem misteriosa
+        document.addEventListener('DOMContentLoaded', function() {
+            const mysteryMessage = document.querySelector('.mystery-message');
+            if (mysteryMessage) {
+                mysteryMessage.addEventListener('click', abrirInspetor);
+
+                // Adiciona cursor pointer
+                mysteryMessage.style.cursor = 'pointer';
+            }
+        });
+    </script>
+
+    <script src="script.js"></script>
+</body>
+</html>
